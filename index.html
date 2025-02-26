@@ -1,55 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <style>
+        body {
+            background-color: #8a2be2;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-    <title>
-      My profile
-    </title>
-  </head>
+        .container {
+            padding: 20px;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: lightgray;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
 
 <body>
+    <div class="container">
+        <button onclick="toggleDarkMode()">Dark Mode</button>
+        <button onclick="changeLanguage('en')">EN</button>
+        <button onclick="changeLanguage('ru')">RU</button>
 
-  <h1>
-    profile of Batyrkhan
-  </h1>
-  <img src = "IMG_4390.png" />
+        <h1 id="profile-title">Profile of Batyrkhan</h1>
+        <img src="IMG_4390.png" />
+
+        <table>
+            <tr>
+                <th id="name-header">Name</th>
+                <th id="age-header">Age</th>
+                <th id="email-header">Email</th>
+            </tr>
+            <tr>
+                <td>Batyrkhan</td>
+                <td>16</td>
+                <td>butter@gmail.com</td>
+            </tr>
+        </table>
+
+        <ul>
+            <li id="trait1">Handsome</li>
+            <li id="trait2">Argyn</li>
+            <li id="trait3">IELTS 9.0</li>
+            <li id="trait4">Grandmaster in chess</li>
+        </ul>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                profileTitle: "Profile of Batyrkhan",
+                nameHeader: "Name",
+                ageHeader: "Age",
+                emailHeader: "Email",
+                trait1: "Handsome",
+                trait2: "Argyn",
+                trait3: "IELTS 9.0",
+                trait4: "Grandmaster in chess"
+            },
+            ru: {
+                profileTitle: "Профиль Батырхана",
+                nameHeader: "Имя",
+                ageHeader: "Возраст",
+                emailHeader: "Почта",
+                trait1: "Красивый",
+                trait2: "Аргын",
+                trait3: "IELTS 9.0",
+                trait4: "Гроссмейстер по шахматам"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById("profile-title").textContent = translations[lang].profileTitle;
+            document.getElementById("name-header").textContent = translations[lang].nameHeader;
+            document.getElementById("age-header").textContent = translations[lang].ageHeader;
+            document.getElementById("email-header").textContent = translations[lang].emailHeader;
+            document.getElementById("trait1").textContent = translations[lang].trait1;
+            document.getElementById("trait2").textContent = translations[lang].trait2;
+            document.getElementById("trait3").textContent = translations[lang].trait3;
+            document.getElementById("trait4").textContent = translations[lang].trait4;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
-  <table>
-    <th> Name </th>
 
-    <th> Age </th>
-
-    <th> Email </th>
-
-    <tr>
-      <td> Batyrkhan </td>
-
-      <td> 16 </td>
-
-      <td> butter@gmail.com </td>
-      
-    </tr>
-
-    <ul>
-      <li>
-       Handsome 
-      </li>
-
-      <li>
-       Argyn
-      </li>
-
-      <li>
-       IELTS 9.0
-      </li>
-
-      <li>
-        Grandmaster in chess
-      </li>
-      
-    </ul>
-
-  </table>
-  
 </html>
